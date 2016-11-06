@@ -1,0 +1,232 @@
+<div id="window_users_regform_container">
+<div class="row">
+	<div class="col-xs-12"><h5><strong>{{ section_header }}</strong></h5></div>
+	<div class="col-xs-12">
+		<form class="form-horizontal" name="formRegForm" ng-submit="ngRegFormSbmt()" novalidate>
+			<div ng-if="ngUCategoryMdl != 5">
+			<div class="form-group">
+				<div class="col-sm-12 col-lg-offset-1 col-lg-11">
+					<div class="form-control-static"><h6 class="text-center"><strong>Personal Details</strong></h6></div>
+				</div>
+				<div class="col-sm-12 col-lg-offset-1 col-lg-11"><hr class="gradience" /></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="fname">First Name</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.fname.$invalid) }">
+					<input type="text" class="form-control input-sm" id="fname" name="fname" maxlength="20" placeholder="First Name" ng-model="formRegFormObj.ngFNameMdl" ng-pattern="/^[a-zA-Z0-9\ ]*$/" ng-required="true" />
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="lname">Last Name (Surname)</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.lname.$invalid) }">
+					<input type="text" class="form-control input-sm" id="lname" name="lname" maxlength="20" placeholder="Last Name" ng-model="formRegFormObj.ngLNameMdl" ng-pattern="/^[a-zA-Z0-9\ ]*$/" ng-required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="dob">Date of Birth</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.dob.$invalid) }">
+					<input type="text" class="form-control input-sm" id="dob" name="dob" maxlength="10" placeholder="DD-MM-YYYY" ng-model="formRegFormObj.ngDOBMdl" ng-required="true" datetimepicker datetimepicker-options="{{ datetimepickerOptions }}" />
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="pob">Place of Birth</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.pob.$invalid) }">
+					<input type="text" class="form-control input-sm" id="pob" name="pob" maxlength="20" placeholder="Place of Birth" ng-model="formRegFormObj.ngPOBMdl" ng-pattern="/^[a-zA-Z0-9\ ]*$/" ng-required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="gender">Gender</label>
+				<div class="col-sm-3">
+					<select class="form-control input-sm" id="gender" name="gender" ng-model="formRegFormObj.ngGenderMdl" ng-options="gender.code as gender.name for gender in genderAr">
+					</select>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="maritalstatus">Marital Status</label>
+				<div class="col-sm-3">
+					<select class="form-control input-sm" id="maritalstatus" name="maritalstatus" ng-model="formRegFormObj.ngMaritalStatusMdl" ng-options="maritalstatus.code as maritalstatus.name for maritalstatus in maritalStatusAr">
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="mobile_no">Mobile No</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.mobile_no.$invalid) }">
+					<input type="number" class="form-control input-sm" id="mobile_no" name="mobile_no" placeholder="Ex: 9XX6XX3XX0" ng-model="formRegFormObj.ngMobileNoMdl" ng-pattern="/^[0-9]{10,10}$/" ng-required="true" />
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="alt_mobile_no">Alt Mobile No</label>
+				<div class="col-sm-3">
+					<input type="number" class="form-control input-sm" id="alt_mobile_no" name="alt_mobile_no" placeholder="Ex: 9XX6XX3XX0" ng-model="formRegFormObj.ngAltMobileNoMdl" ng-pattern="/^[0-9]{10,10}$/" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="email_id">Email ID</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.email_id.$invalid) }">
+					<input type="email" class="form-control input-sm" id="email_id" name="email_id" placeholder="Ex: user@domain.extension" ng-model="formRegFormObj.ngEmailIDMdl" ng-required="true" />
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="alt_email_id">Alt Email ID</label>
+				<div class="col-sm-3">
+					<input type="email" class="form-control input-sm" id="alt_email_id" name="alt_email_id" placeholder="Ex: user@domain.extension" ng-model="formRegFormObj.ngAltEmailIDMdl" />
+				</div>
+			</div>
+			<div class="form-group" style="margin-top: 30px; margin-bottom: 0;">
+				<div class="col-sm-6 col-lg-offset-2 col-lg-5">
+					<div class="form-control-static"><h6 class="text-center"><strong>Present Address</strong></h6></div>
+				</div>
+				<div class="col-sm-6 col-lg-5">
+					<div class="form-control-static"><h6 class="text-center"><strong>Permanent Address</strong></h6></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-6 col-lg-offset-2 col-lg-5"><hr class="gradience" /></div>
+				<div class="col-sm-6 col-lg-5"><hr class="gradience" /></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="present_add_line1">Address Line1</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.present_add_line1.$invalid) }">
+					<textarea class="form-control input-sm max-width" id="present_add_line1" name="present_add_line1" placeholder="Address Line1" ng-model="formRegFormObj.ngPresentAddLine1Mdl" ng-required="true"></textarea>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="permanent_add_line1">Address Line1</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.permanent_add_line1.$invalid) }">
+					<textarea class="form-control input-sm max-width" id="permanent_add_line1" name="permanent_add_line1" placeholder="Address Line1" ng-model="formRegFormObj.ngPermanentAddLine1Mdl" ng-required="true"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="present_add_line2">Address Line2</label>
+				<div class="col-sm-3">
+					<textarea class="form-control input-sm max-width" id="present_add_line2" name="present_add_line2" placeholder="Address Line2" ng-model="formRegFormObj.ngPresentAddLine2Mdl" />
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="permanent_add_line2">Address Line2</label>
+				<div class="col-sm-3">
+					<textarea class="form-control input-sm max-width" id="permanent_add_line2" name="permanent_add_line2" placeholder="Address Line2" ng-model="formRegFormObj.ngPermanentAddLine2Mdl"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="present_add_landmark">Landmark</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control input-sm" id="present_add_landmark" name="present_add_landmark" placeholder="Landmark" ng-model="formRegFormObj.ngPresentAddLandmarkMdl"></textarea>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="permanent_add_landmark">Landmark</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control input-sm" id="permanent_add_landmark" name="permanent_add_landmark" placeholder="Landmark" ng-model="formRegFormObj.ngPermanentAddLandmarkMdl" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="present_add_country">Country</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.present_add_country.$invalid) }">
+					<select class="form-control input-sm" id="present_add_country" name="present_add_country" ng-model="formRegFormObj.ngPresentAddCountryMdl" ng-options="country.id as country.name for country in presentAddCountriesAr" ng-change="ngPresentAddCountryChng()" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="permanent_add_country">Country</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.permanent_add_country.$invalid) }">
+					<select class="form-control input-sm" id="permanent_add_country" name="permanent_add_country" ng-model="formRegFormObj.ngPermanentAddCountryMdl" ng-options="country.id as country.name for country in permanentAddCountriesAr" ng-change="ngPermanentAddCountryChng()" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="present_add_state">State</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.present_add_state.$invalid) }">
+					<select class="form-control input-sm" id="present_add_state" name="present_add_state" ng-model="formRegFormObj.ngPresentAddStateMdl" ng-options="state.id as state.name for state in presentAddStatesAr" ng-change="ngPresentAddStateChng()" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="permanent_add_state">State</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.permanent_add_state.$invalid) }">
+					<select class="form-control input-sm" id="permanent_add_state" name="permanent_add_state" ng-model="formRegFormObj.ngPermanentAddStateMdl" ng-options="state.id as state.name for state in permanentAddStatesAr" ng-change="ngPermanentAddStateChng()" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="present_add_district">District</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.present_add_district.$invalid) }">
+					<select class="form-control input-sm" id="present_add_district" name="present_add_district" ng-model="formRegFormObj.ngPresentAddDistrictMdl" ng-options="district.id as district.name for district in presentAddDistrictsAr" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="permanent_add_district">District</label>
+				<div class="col-sm-3" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.permanent_add_district.$invalid) }">
+					<select class="form-control input-sm" id="permanent_add_district" name="permanent_add_district" ng-model="formRegFormObj.ngPermanentAddDistrictMdl" ng-options="district.id as district.name for district in permanentAddDistrictsAr" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label" for="present_add_pincode">Pincode</label>
+				<div class="col-sm-3">
+					<input type="number" class="form-control input-sm" id="present_add_pincode" name="present_add_pincode" placeholder="Ex: 5X0X0X" ng-model="formRegFormObj.ngPresentAddPincodeMdl" ng-pattern="/^[0-9]{6,6}$/" />
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label" for="permanent_add_pincode">Pincode</label>
+				<div class="col-sm-3">
+					<input type="number" class="form-control input-sm" id="permanent_add_pincode" name="permanent_add_pincode" placeholder="Ex: 5X0X0X" ng-model="formRegFormObj.ngPermanentAddPincodeMdl" ng-pattern="/^[0-9]{6,6}$/" />
+				</div>
+			</div>
+			</div>
+			<div ng-if="ngUCategoryMdl == 5">
+			<div class="form-group">
+				<div class="col-xs-12 col-lg-offset-1 col-lg-11">
+					<div class="form-control-static"><h6 class="text-center"><strong>Contact Details</strong></h6></div>
+				</div>
+				<div class="col-xs-12 col-lg-offset-1 col-lg-11"><hr class="gradience" /></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-4 col-lg-6 control-label" for="fname">First Name</label>
+						<div class="col-xs-7 col-sm-6" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.fname.$invalid) }">
+							<input type="text" class="form-control input-sm" id="fname" name="fname" maxlength="20" placeholder="First Name" ng-model="formRegFormObj.ngFNameMdl" ng-pattern="/^[a-zA-Z0-9\ ]*$/" ng-required="true" />
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-6 col-lg-4 control-label" for="lname">Last Name (Surname)</label>
+						<div class="col-xs-7 col-sm-6" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.lname.$invalid) }">
+							<input type="text" class="form-control input-sm" id="lname" name="lname" maxlength="20" placeholder="Last Name" ng-model="formRegFormObj.ngLNameMdl" ng-pattern="/^[a-zA-Z0-9\ ]*$/" ng-required="true" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-4 col-lg-6 control-label" for="mobile_no">Mobile No</label>
+						<div class="col-xs-7 col-sm-6" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.mobile_no.$invalid) }">
+							<input type="number" class="form-control input-sm" id="mobile_no" name="mobile_no" placeholder="Ex: 9XX6XX3XX0" ng-model="formRegFormObj.ngMobileNoMdl" ng-pattern="/^[0-9]{10,10}$/" ng-required="true" />
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-6 col-lg-4 control-label" for="alt_mobile_no">Alt Mobile No</label>
+						<div class="col-xs-7 col-sm-6">
+							<input type="number" class="form-control input-sm" id="alt_mobile_no" name="alt_mobile_no" placeholder="Ex: 9XX6XX3XX0" ng-model="formRegFormObj.ngAltMobileNoMdl" ng-pattern="/^[0-9]{10,10}$/" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-4 col-lg-6 control-label" for="email_id">Email ID</label>
+						<div class="col-xs-7 col-sm-6" ng-class="{ 'has-error': (formRegForm.$submitted && formRegForm.email_id.$invalid) }">
+							<input type="email" class="form-control input-sm" id="email_id" name="email_id" placeholder="Ex: user@domain.extension" ng-model="formRegFormObj.ngEmailIDMdl" ng-required="true" />
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-6 col-lg-4 control-label" for="alt_email_id">Alt Email ID</label>
+						<div class="col-xs-7 col-sm-6">
+							<input type="email" class="form-control input-sm" id="alt_email_id" name="alt_email_id" placeholder="Ex: user@domain.extension" ng-model="formRegFormObj.ngAltEmailIDMdl" />
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-12 col-lg-offset-1 col-lg-11 text-center">
+					<button type="button" class="btn btn-primary btn-sm" ng-click="ngBackClick('pageWindow.pageUsers.pageUsersRegister.pageUsersRegParams')">Back</button>
+					<button type="submit" class="btn btn-primary btn-sm">Continue</button>
+					<button type="button" class="btn btn-primary btn-sm" ng-disabled="!formRegForm.$dirty" ng-click="ngResetClick()">Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>

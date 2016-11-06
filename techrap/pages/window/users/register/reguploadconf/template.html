@@ -1,0 +1,46 @@
+<div id="window_users_reguploadconf_container">
+<div class="row">
+	<div class="col-xs-12"><h5><strong>{{ section_header }}</strong></h5></div>
+</div>
+<div class="row" ng-if="isInfo.type != 'INVALID_TEMPLATE'">
+	<div class="col-xs-12 table-responsive" style="margin-bottom: 20px; max-height: 300px; font-size: 80%;">
+		<table class="table table-bordered table-striped" id="table_users_reguploadconf">
+			<thead>
+				<tr>
+					<th>S.No</th>
+					<th class="text-center" ng-if="showConfirm()">
+						<input type="checkbox" class="cursor-pointer" name="checkall" ng-model="formRegUploadConfObj.checkall" ng-checked="true" ng-click="checkall()" />
+					</th>
+					<th class="cursor-pointer" ng-repeat="thead in theadAr" ng-click="ngSortClick(thead.code)">
+						{{ thead.name }}
+						<span class="glyphicon glyphicon-triangle-top pull-right" ng-if="uOrderBy == thead.code && uOrderByDir"></span>
+						<span class="glyphicon glyphicon-triangle-bottom pull-right" ng-if="uOrderBy == thead.code && !uOrderByDir"></span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="tbody in tbodyAr | orderBy: uOrderBy : uOrderByDir">
+					<th scope="row">{{ $index + 1 }}</th>
+					<td class="text-center" ng-if="showConfirm()">
+						<input type="checkbox" class="cursor-pointer" name="check" value="{{ $index }}" checked="true" />
+					</td>
+					<td ng-repeat="thead in theadAr">{{ tbody[thead.code] }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="row" ng-if="isInfo.msg">
+	<div class="col-xs-12">
+		<div class="alert {{ isInfo.alertname }} alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>{{ isInfo.title }}:</strong> {{ isInfo.msg }}
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 text-center">
+		<button type="button" class="btn btn-primary btn-sm" ng-click="ngBackClick('pageWindow.pageUsers.pageUsersRegister.pageUsersRegUpload')">Back</button>
+		<button type="button" class="btn btn-primary btn-sm" ng-if="showConfirm()" ng-disabled="!isConfirm()" ng-click="ngConfirmClick()">Confirm</button>
+	</div>
+</div>

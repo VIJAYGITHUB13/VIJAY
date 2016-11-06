@@ -1,0 +1,167 @@
+Github:
+	Export the folder
+		git archive --format zip --output techrap.zip master
+
+FTP:
+ftp://www.vknsoft.in/
+
+CodeReview&CodeRework:
+01) Order of HTML attributes:
+	type, class, id, name, data-*, src, for, href, min, max, value, title, multiple, autocomplete, placeholder, style, alt, role, aria-*, ...
+
+	Order of AngularJS directives:
+	ng-if
+	ng-controller
+	ng-model
+	ng-init
+	ng-repeat
+	ng-options
+	ng-submit
+	ng-click
+	ng-change
+	ng-class
+	ng-style
+	ng-checked
+	ng-disabled
+	ng-required
+	ng-pattern
+	ng-minlength
+	ng-maxlength
+	ng-show
+	ng-hide
+
+	Order of AngularJS DI:
+	$rootScope, $scope, $state, $location, $http, $filter, $interval, ngServiceAppInfo, ngServiceMyInfo, ngServiceInfoMsgs, ngServiceRESTAPI, ngServiceDPConf, ngServicePaginationConf
+
+02) Normalisation of $http service
+03) InfoMessages in all cases such as (500, 501, 404 Internal server error etc at framework-level)
+04) Handling all possible null cases of the APIs
+05) Conversion of msgObj into a service
+06) Creation of services such as appInfo, userInfo
+07) Directive for page header and Implementing/utilising $state service to replace static values such as tab_name with $state.current.name object etc
+08) Inheritance of the controllers using injection of $state. For example: Removal of $rootScope.jobDetailsJID and $rootScope.jobDetailsJName with $state.current.data.customData object, which can be utilised in its child state jobDetails as $state.$current.parent.data.customData.
+09) Implementation of AngJS views at common areas
+10) Clear DOM layouts for repetitive search
+11) DateValidation (such as select both fdate and tdate etc)
+12) Replacing bootbox with BootstrapJS modal window
+13) IconicApproach
+14) TooltipImplementation: Tooltips for self-explanatory will be applied on the required form-controls, labels
+15) Configurations: Options such as textarea limit, min, max, datepicker, etc to be made configurable globally and locally
+16) Order of methods such as onload, unload, interactive, reset type of methods etc
+17) Order of options in select dropdown
+18) Creation of CSS classes in style.css that will be common to the screens
+19) Service for getter and setter
+
+
+Reference URLs:
+
+Angular JS UI Router v0.2.15
+https://github.com/angular-ui/ui-router/
+
+Angular JS Resource v1.4.7
+https://docs.angularjs.org/api/ngResource/service/$resource/
+
+AngularJS NVD3 Dashboards:
+http://krispo.github.io/angular-nvd3/#/
+
+Bootstrap Datepicker JS v1.4.0
+http://eternicode.github.io/bootstrap-datepicker/
+
+Datetimepicker:
+https://github.com/Eonasdan/bootstrap-datetimepicker
+
+dirPagination:
+https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
+
+Column sorter:
+https://scotch.io/tutorials/sort-and-filter-a-table-using-angular
+
+Service for $http:
+http://www.thinkingmedia.ca/2015/01/how-to-create-a-factory-in-angularjs-that-takes-parameters/
+
+ngRepeat with customRange:
+http://stackoverflow.com/questions/11873570/angularjs-for-loop-with-numbers-ranges
+
+Order of HTML5 tag attributes:
+http://codeguide.co/
+
+AngJS custom directive:
+http://code.tutsplus.com/tutorials/mastering-angularjs-directives--cms-22511
+
+Angular Tree Control CSS
+https://github.com/wix/angular-tree-control/
+
+Bootstrap JS Dialog
+https://nakupanda.github.io/bootstrap3-dialog/
+
+Angular JS Spinner v2.3.2
+http://ngmodules.org/modules/angular-loading-spinner/
+
+Angular Tree Control JS
+https://github.com/wix/angular-tree-control/
+
+Spinner JS
+http://ngmodules.org/modules/angular-loading-spinner/
+
+Dashboard: Responsive circles:
+http://littledice.me/2014/04/16/responsive-circles-with-css/
+
+To filter the array:
+http://jsfiddle.net/lmatteis/8LWMH/4/
+
+Sortable (Drag/Drop) Elements:
+https://github.com/james2doyle/zepto-dragswap
+
+PHPFileUpload:
+https://sourceforge.net/projects/phpexcelreader/
+
+CodeReviewAttained:
+index.html, style.css, model.json, app.js, config.js, services.js
+pages > index;
+pages > index > aboutus;
+pages > index > contactus;
+pages > index > home;
+pages > index > tariffplans;
+pages > window;
+pages > window > users;
+pages > window > defanatomy;
+pages > window > defanatomy > Plans;
+pages > window > defanatomy > Speed;
+pages > window > defanatomy > Fair Usage Policy Limit;
+pages > window > defanatomy > Speed post Fair Usage Policy;
+pages > window > defanatomy > Terms;
+pages > window > defanatomy > Anatomy;
+
+HTML
+indentation
+order of attributes
+RWD
+
+JS
+indentation
+order of DI
+order of methods
+
+aa bb cc dd ee ff gg hh ii jj kk ll mm nn oo pp qq rr ss tt uu vv ww xx yy zz
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+
+To delete the uploaded records:
+DELETE FROM jos_request_details WHERE id > 90;
+DELETE FROM jos_requests WHERE id > 27;
+DELETE FROM jos_user_contact WHERE id > 345;
+DELETE FROM jos_users WHERE id > 347;
+DELETE FROM jos_user_personal_details WHERE id > 4;
+
+RESET VALUES FROM SAMPLEDATA:
+INSERT INTO `sampledata` (`id`, `fname`, `lname`, `gender`, `dob`, `pob`, `marital_status`, `mobile_no`, `alt_mobile_no`, `email_id`, `alt_email_D`, `present_add_line1`, `present_add_line2`, `present_add_landmark`, `present_add_pincode`, `perm_add_line1`, `perm_add_line2`, `perm_landmark`, `perm_add_pincode`, `company`) VALUES
+
+
+INSERT INTO `jos_user_personal_details` (`id`, `user_id`, `first_name`, `last_name`, `gender`, `dob`, `place_of_birth`, `marital_status`, `photo_id_proof_name`, `photo_id_proof_id`, `address_id_proof_name`, `address_id_proof_id`) VALUES
+
+INSERT INTO `jos_user_contact` (`id`, `user_id`, `mobile_no`, `alt_mobile_no`, `email_id`, `alt_email_id`, `present_add_line1`, `present_add_line2`, `present_add_landmark`, `present_add_country_id`, `present_add_state_id`, `present_add_district_id`, `present_add_pincode`, `permanent_add_line1`, `permanent_add_line2`, `permanent_add_landmark`, `permanent_add_country_id`, `permanent_add_state_id`, `permanent_add_district_id`, `permanent_add_pincode`, `campany`) VALUES
+
+UPDATE `jos_user_personal_details` jupd, `sampledata` sd SET `first_name` = sd.`fname`, jupd.`last_name` = sd.`lname`, jupd.`gender` = sd.`gender`, jupd.`dob` = sd.`dob`, jupd.`place_of_birth` = sd.`pob`, jupd.`marital_status` = sd.`marital_status` WHERE `user_id` = sd.`id`
+
+UPDATE `jos_user_contact` juc, `sampledata` sd SET juc.`mobile_no` = sd.`mobile_no`, juc.`alt_mobile_no` = sd.`alt_mobile_no`, juc.`email_id` = sd.`email_id`, juc.`alt_email_id` = sd.`alt_email_D`, juc.`present_add_line1` = sd.`present_add_line1`, juc.`present_add_line2` = sd.`present_add_line2`, juc.`present_add_landmark` = sd.`present_add_landmark`, juc.`present_add_pincode` = sd.`present_add_pincode`, juc.`permanent_add_line1` = sd.`perm_add_line1`, juc.`permanent_add_line2` = sd.`perm_add_line2`, juc.`permanent_add_landmark` = sd.`perm_landmark`, juc.`permanent_add_pincode` = sd.`perm_add_pincode`, juc.`campany` = sd.`company` WHERE juc.`user_id` = sd.`id`;
+
+UPDATE `jos_users` ju, `sampledata` sd SET ju.`name` = REPLACE(LOWER(CONCAT(sd.`fname`, " ", sd.`lname`)), " ", "_"), ju.`display_name` = CONCAT(sd.`fname`, " ", sd.`lname`) WHERE sd.`id` = ju.`id`;

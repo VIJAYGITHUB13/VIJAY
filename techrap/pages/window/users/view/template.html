@@ -1,0 +1,117 @@
+<div class="container-fluid" id="window_users_view_container">
+<div class="row">
+	<div class="col-xs-12">
+		<dir-page-header tabname="tab_name" tabdesc="tab_desc"></dir-page-header>
+		<div style="margin: 15px 0;">
+			<div class="row" style="margin: auto;">
+				<form class="form-horizontal" name="formSearch" ng-submit="ngSearchSbmt()" novalidate>
+					<div class="row">
+						<div class="col-xs-12"><h5><strong>Search Criteria</strong></h5></div>
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<label class="col-xs-5 col-md-6 control-label" for="ucategory">User Category</label>
+								<div class="col-xs-7 col-md-5">
+									<select class="form-control input-sm" id="ucategory" name="ucategory" ng-model="searchObj.ngUCategoryMdl" ng-options="ucategory.id as ucategory.name for ucategory in uCategoryAr">
+										<option value="">Select</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<label class="col-xs-5 col-md-3 control-label" for="uname">Name</label>
+								<div class="col-xs-7 col-md-5">
+									<input type="text" class="form-control input-sm" id="uname" name="uname" ng-model="searchObj.ngUNameMdl" placeholder="Name">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<label class="col-xs-5 col-md-6 control-label" for="fdate">From Date</label>
+								<div class="col-xs-7 col-md-5">
+									<input type="text" class="form-control input-sm" id="fdate" name="fdate" ng-model="searchObj.ngFDateMdl" datetimepicker datetimepicker-options="{{ datetimepickerOptions }}" placeholder="From Date">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<label class="col-xs-5 col-md-3 control-label" for="tdate">To Date</label>
+								<div class="col-xs-7 col-md-5">
+									<input type="text" class="form-control input-sm" id="tdate" name="tdate" ng-model="searchObj.ngTDateMdl" datetimepicker datetimepicker-options="{{ datetimepickerOptions }}" placeholder="To Date">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="form-group">
+								<div class="text-center">
+									<button type="submit" class="btn btn-primary btn-sm" ng-disabled="!(searchObj.ngUCategoryMdl || searchObj.ngUNameMdl || searchObj.ngFDateMdl || searchObj.ngTDateMdl)">Search</button>
+									<button type="button" class="btn btn-primary btn-sm" ng-disabled="!(formSearch.$submitted || searchObj.ngUCategoryMdl || searchObj.ngUNameMdl || searchObj.ngFDateMdl || searchObj.ngTDateMdl)" ng-click="ngResetClick()">Reset</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div ng-if="formSearch.$submitted && isInfo.msg">
+				<div class="alert {{ isInfo.alertname }} alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<strong>{{ isInfo.title }}:</strong> {{ isInfo.msg }}
+				</div>
+			</div>
+			<div ng-if="formSearch.$submitted && tbodyAr.length">
+			<hr /><br />
+			<div class="row" style="margin: auto;">
+				<dir-pagination-header noof-pages="noofPages" table-search="tableSearch"></dir-pagination-header>
+			</div>
+			<br />
+			<div class="row">
+				<div class="hidden-xs col-sm-12">
+					<table class="table table-bordered table-striped" id="table_users">
+						<thead>
+							<tr>
+								<th>S.No</th>
+								<th class="cursor-pointer" ng-repeat="thead in uSearchColAr" ng-click="ngSortClick(thead.code)">
+									{{ thead.name }}
+									<span class="glyphicon glyphicon-triangle-top pull-right" ng-if="uOrderBy == thead.code && uOrderByDir"></span>
+									<span class="glyphicon glyphicon-triangle-bottom pull-right" ng-if="uOrderBy == thead.code && !uOrderByDir"></span>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr dir-paginate="tbody in tbodyAr | orderBy: uOrderBy : uOrderByDir | filter: tableSearch | itemsPerPage: noofPages" current-page="currentPage" pagination-id="mealsPagination">
+								<th scope="row">{{ $index + 1 }}</th>
+								<td><span class="cursor-pointer" style="color: #337ab7;" ng-click="ngUserProfileClick(tbody.id, tbody.name)">{{ tbody.name }}</span></td>
+								<td>{{ tbody.username }}</td>
+								<td>{{ tbody.ucategory }}</td>
+								<td>{{ tbody.mobile_no }}</td>
+								<td>{{ tbody.email_id }}</td>
+								<td>{{ tbody.created_on }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="visible-xs col-xs-12">
+					<div class="row" ng-repeat="tbody in tbodyAr | filter: tableSearch" style="font-size: 90%;">
+						<div class="col-xs-12"><h3>{{ tbody.name }}</h3></div>
+						<div class="col-xs-12 text-muted">
+							<span><span class="glyphicon glyphicon-user"></span> {{ tbody.username }}</span>
+							<span class="pull-right">{{ tbody.created_on }} <span class="glyphicon glyphicon-time"></span></span>
+						</div>
+						<div class="col-xs-12 text-muted">
+							<span><span class="glyphicon glyphicon-phone"></span> {{ tbody.mobile_no }}</span>
+							<span class="pull-right">{{ tbody.email_id }} <span class="glyphicon glyphicon-envelope"></span></span>
+						</div>
+						<div class="col-xs-12"><hr style="margin-top: 15px;" /></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="hidden-xs col-sm-12 text-center">
+					<dir-pagination-controls boundary-links="true" pagination-id="mealsPagination" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/dirPagination.tpl.html"></dir-pagination-controls>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div> 
+</div>
+</div>

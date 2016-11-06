@@ -1,0 +1,47 @@
+<div id="window_defanatomy_tariff_container">
+<div class="row hidden-xs">
+	<div class="col-xs-12">
+		<table class="table table-bordered table-striped" id="table_tariff">
+			<thead>
+				<tr>
+					<th>Plan</th>
+					<th ng-repeat="thead in theadAr">{{ thead }}</th>
+					<th class="text-center">Option</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="tbody in tbodyAr track by $index">
+					<td>{{ tbody.plan }}</td>
+					<td ng-repeat="item in tbody.faresAr track by $index">
+						<span ng-hide="editFlag[$parent.$index]">
+							{{ (item == '0' ? 'NA' : 'Rs. ' + item + '/-') }}
+						</span>
+						<span ng-show="editFlag[$parent.$index]">
+							Rs. <input type="number" class="form-control" placeholder="#" ng-model="ngUpdateTariffMdl[$parent.$index][tbody.tariff_idsAr[$index]]" />/-
+						</span>
+					</td>
+					<td class="text-center">
+						<span class="glyphicon glyphicon-pencil cursor-pointer" ng-hide="editFlag[$index]" ng-click="editFlag[$index] = !editFlag[$index]"></span>
+						<span class="glyphicon glyphicon-floppy-disk cursor-pointer" ng-show="editFlag[$index]" ng-click="ngUpdateTariffClick($index)"></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> 
+</div>
+
+<ul class="list-group visible-xs">
+	<li class="list-group-item" ng-repeat="tbody in tbodyAr track by $index">
+		<div class="row">
+			<div class="col-xs-12 text-center"><h4>{{ tbody.plan }}</h4></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-10" style="margin-bottom: 10px;"><hr /></div>
+		</div>
+		<div class="row" ng-repeat="item in tbody.faresAr track by $index">
+			<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">{{ theadAr[$index] }}</strong></div>
+			<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ (item == '0' ? 'NA' : 'Rs. ' + item + '/-') }}</div>
+		</div>
+	</li>
+</ul>
+</div>

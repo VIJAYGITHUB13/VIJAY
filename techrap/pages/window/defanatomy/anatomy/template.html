@@ -1,0 +1,83 @@
+<div id="window_defanatomy_anatomy_container">
+<ul class="list-group hidden-xs">
+	<li class="list-group-item">
+		<div class="row">
+			<div class="hidden-xs hidden-sm" ng-repeat="thead in theadArMD" ng-class="((($index + 1) == '1') ? 'col-xs-1' : ((($index + 1) == '2') ? 'col-xs-3' : 'col-xs-2'))"><strong>{{ thead }}</strong></div>
+			<div class="visible-sm" ng-repeat="thead in theadArSM" ng-class="((($index + 1) == '1') ? 'col-xs-1' : ((($index + 1) == '2') ? 'col-xs-3' : 'col-xs-2'))"><strong>{{ thead }}</strong></div>
+			<div class="col-xs-2 text-center"><strong>Option</strong></div>
+		</div>
+	</li>
+	<li class="list-group-item" ng-repeat="tbody in tbodyAr">
+		<div class="row">
+		<form name="formAnatomy[{{ $index }}]" novalidate>
+			<div class="col-xs-1">{{ $index + 1 }}</div>
+			<div class="col-xs-3">
+				<span ng-hide="editFlag[$index]">{{ tbody.pdname }}</span>
+				<span ng-show="editFlag[$index]">
+					<select class="form-control" ng-model="anatomyAr[$index].ngPIDMdl" data-ng-init="anatomyAr[$index].ngPIDMdl = tbody.pid" ng-options="plan.id as plan.display_name for plan in plansAr" required="required">
+						<option value="">Select</option>
+					</select>
+				</span>
+			</div>
+			<div class="col-xs-2">
+				<span ng-hide="editFlag[$index]">{{ tbody.sdname }}</span>
+				<span ng-show="editFlag[$index]">
+					<select class="form-control" ng-model="anatomyAr[$index].ngSIDMdl" data-ng-init="anatomyAr[$index].ngSIDMdl = tbody.sid" ng-options="speed.id as speed.display_name for speed in speedAr" required="required">
+						<option value="">Select</option>
+					</select>
+				</span>
+			</div>
+			<div class="col-xs-2">
+				<span ng-hide="editFlag[$index]">{{ tbody.fdname }}</span>
+				<span ng-show="editFlag[$index]">
+					<select class="form-control" ng-model="anatomyAr[$index].ngFIDMdl" data-ng-init="anatomyAr[$index].ngFIDMdl = tbody.fid" ng-options="fup.id as fup.display_name for fup in fupsAr" required="required">
+						<option value="">Select</option>
+					</select>
+				</span>
+			</div>
+			<div class="col-xs-2">
+				<span ng-hide="editFlag[$index]">{{ tbody.pfdname }}</span>
+				<span ng-show="editFlag[$index]">
+					<select class="form-control" ng-model="anatomyAr[$index].ngPFIDMdl" data-ng-init="anatomyAr[$index].ngPFIDMdl = tbody.pfid" ng-options="post_fup.id as post_fup.display_name for post_fup in post_fupsAr" required="required">
+						<option value="">Select</option>
+					</select>
+				</span>
+			</div>
+			<div class="col-xs-2 text-center">
+				<span class="glyphicon glyphicon-pencil cursor-pointer" ng-hide="editFlag[$index]" ng-click="editFlag[$index] = !editFlag[$index]"></span>
+				<span class="glyphicon glyphicon-floppy-disk cursor-pointer" ng-show="editFlag[$index]" ng-click="(formAnatomy[$index].$valid ? ngUpdateStructClick(tbody.ts_id, $index) : ''); (formAnatomy[$index].$valid ? (editFlag[$index] = !editFlag[$index]) : '');"></span>
+				<span class="glyphicon glyphicon-trash cursor-pointer" data-toggle="confirmation" data-dismiss="alert" data-singleton="true" data-popout="true" data-tsid="{{ tbody.ts_id }}" ng-hide="editFlag[$index]" ng-anatomy-dir></span>
+			</div>
+		</form>
+		</div>
+	</li>
+	<li class="list-group-item">
+		<div class="row">
+			<div class="col-xs-offset-10 col-xs-2 text-center"><span class="glyphicon glyphicon-plus-sign cursor-pointer" ng-click="ngAddStructClick();"></span></div>
+		</div>
+	</li>
+</ul>
+
+<ul class="list-group visible-xs">
+	<li class="list-group-item" ng-repeat="tbody in tbodyAr">
+		<div class="row">
+			<div class="col-xs-12 text-center"><h4>{{ tbody.pdname }}</h4></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-10" style="margin-bottom: 10px;"><hr /></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">Speed</strong></div>
+			<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ tbody.sdname }}</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">FUP Limit</strong></div>
+			<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ tbody.fdname }}</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">Post FUP</strong></div>
+			<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ tbody.pfdname }}</div>
+		</div>
+	</li>
+</ul>
+</div>

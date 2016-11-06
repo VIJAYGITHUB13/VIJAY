@@ -1,0 +1,226 @@
+<div id="window_users_regformconf_container">
+<div class="row">
+	<div class="col-xs-12"><h5><strong>{{ section_header }}</strong></h5></div>
+	<div class="col-xs-12">
+		<form class="form-horizontal" name="formRegFormConf" ng-submit="ngRegFormConfSbmt()" novalidate>
+			<div ng-if="ngUCategoryMdl != 5">
+			<div class="form-group">
+				<div class="col-sm-12 col-lg-offset-1 col-lg-11">
+					<div class="form-control-static"><h6 class="text-center"><strong>Personal Details</strong></h6></div>
+				</div>
+				<div class="col-sm-12 col-lg-offset-1 col-lg-11"><hr class="gradience" /></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">First Name</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngFNameMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Last Name (Surname)</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngLNameMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Date of Birth</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngDOBMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Place of Birth</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPOBMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Gender</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngGenderNameMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Marital Status</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngMaritalStatusNameMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Mobile No</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngMobileNoMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Alt Mobile No</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngAltMobileNoMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Email ID</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngEmailIDMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Alt Email ID</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngAltEmailIDMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group" style="margin-top: 30px; margin-bottom: 0;">
+				<div class="col-sm-6 col-lg-offset-2 col-lg-5">
+					<div class="form-control-static"><h6 class="text-center"><strong>Present Address</strong></h6></div>
+				</div>
+				<div class="col-sm-6 col-lg-5">
+					<div class="form-control-static"><h6 class="text-center"><strong>Permanent Address</strong></h6></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-6 col-lg-offset-2 col-lg-5"><hr class="gradience" /></div>
+				<div class="col-sm-6 col-lg-5"><hr class="gradience" /></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Address Line1</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPresentAddLine1Mdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Address Line1</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPermanentAddLine1Mdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Address Line2</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPresentAddLine2Mdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Address Line2</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPermanentAddLine2Mdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Landmark</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPresentAddLandmarkMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Landmark</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPermanentAddLandmarkMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Country</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPresentAddCountryNameMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Country</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPermanentAddCountryNameMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">State</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPresentAddStateNameMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">State</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPermanentAddStateNameMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">District</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPresentAddDistrictNameMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">District</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPermanentAddDistrictNameMdl || "-" ) }}</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-3 control-label">Pincode</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPresentAddPincodeMdl || "-" ) }}</div>
+				</div>
+				<label class="col-sm-3 col-lg-2 control-label">Pincode</label>
+				<div class="col-sm-3">
+					<div class="form-control-static">{{ (formRegFormConfObj.ngPermanentAddPincodeMdl || "-" ) }}</div>
+				</div>
+			</div>
+			</div>
+			<div ng-if="ngUCategoryMdl == 5">
+			<div class="form-group">
+				<div class="col-sm-12 col-lg-offset-1 col-lg-11">
+					<div class="form-control-static"><h6 class="text-center"><strong>Contact Details</strong></h6></div>
+				</div>
+				<div class="col-sm-12 col-lg-offset-1 col-lg-11"><hr class="gradience" /></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-4 col-lg-6 control-label">First Name</label>
+						<div class="col-xs-7 col-sm-6">
+							<div class="form-control-static">{{ (formRegFormConfObj.ngFNameMdl || "-" ) }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-6 col-lg-4 control-label">Last Name (Surname)</label>
+						<div class="col-xs-7 col-sm-6">
+							<div class="form-control-static">{{ (formRegFormConfObj.ngLNameMdl || "-" ) }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-4 col-lg-6 control-label">Mobile No</label>
+						<div class="col-xs-7 col-sm-6">
+							<div class="form-control-static">{{ (formRegFormConfObj.ngMobileNoMdl || "-" ) }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-6 col-lg-4 control-label">Alt Mobile No</label>
+						<div class="col-xs-7 col-sm-6">
+							<div class="form-control-static">{{ (formRegFormConfObj.ngAltMobileNoMdl || "-" ) }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-4 col-lg-6 control-label">Email ID</label>
+						<div class="col-xs-7 col-sm-6">
+							<div class="form-control-static">{{ (formRegFormConfObj.ngEmailIDMdl || "-" ) }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-xs-5 col-sm-6 col-lg-4 control-label">Alt Email ID</label>
+						<div class="col-xs-7 col-sm-6">
+							<div class="form-control-static">{{ (formRegFormConfObj.ngAltEmailIDMdl || "-" ) }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="form-group" ng-if="!isInfo.msg && !readOnly">
+				<div class="col-xs-12 col-lg-offset-1 col-lg-11 text-center">
+					<button type="button" class="btn btn-primary btn-sm" ng-click="ngBackClick('pageWindow.pageUsers.pageUsersRegister.pageUsersRegForm')">Back</button>
+					<button type="submit" class="btn btn-primary btn-sm">Confirm</button>
+				</div>
+			</div>
+			<div class="form-group" ng-if="isInfo.msg && !readOnly">
+				<div class="col-xs-12 col-lg-offset-1 col-lg-11 text-center">
+					<button type="button" class="btn btn-primary btn-sm" ng-click="ngBackClick('pageWindow.pageUsers.pageUsersRegister.pageUsersRegParams')">Back</button>
+				</div>
+			</div>
+		</form>
+		<div class="alert {{ isInfo.alertname }} alert-dismissible" role="alert" ng-if="(formRegFormConf.$submitted && isInfo.msg)">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>{{ isInfo.title }}:</strong> {{ isInfo.msg }}
+		</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-xs-12">
+        <dir-page-header tabname="tab_name" tabdesc="tab_desc"></dir-page-header>
+        <div style="margin: 15px 0;">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">General Information
+                        <span class="glyphicon glyphicon-info-sign" style="float: right;" aria-hidden="true"></span>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <colgroup>
+                                <col class="col-xs-6">
+                                <col class="col-xs-6">
+                            </colgroup>
+                            <tbody ng-repeat="i in geninfo">
+                                <tr>
+                                    <th scope="row">{{ i[0] }}</th>
+                                    <td>{{ i[1] }}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <th scope="row">Account Status:</th>
+                                    <td><span class="label label-success">Active</span></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Service Information
+                        <span class="glyphicon glyphicon-globe" style="float: right;" aria-hidden="true"></span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <colgroup>
+                                <col class="col-xs-6">
+                                <col class="col-xs-6">
+                            </colgroup>
+                            <tbody ng-repeat="i in serinfo">
+                                <tr>
+                                    <th scope="row">{{ i[0] }}</th>
+                                    <td>{{ i[1] }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="panel panel-info pageHomePersonalData">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Personal Data
+                        <span class="glyphicon glyphicon-user" style="float: right;" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-pencil" style="float: right;" aria-hidden="true" ng-click="toggleEdit()"></span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <colgroup>
+                                <col class="col-xs-4">
+                                <col class="col-xs-8">
+                            </colgroup>
+                            <tbody ng-repeat="i in userdetails">
+                                <tr>
+                                    <th scope="row">{{ i[0] }}</th>
+                                    <td><span>{{ i[1] }}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Limits and Quotas
+                        <span class="glyphicon glyphicon-scale" style="float: right;" aria-hidden="true"></span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <colgroup>
+                                <col class="col-xs-6">
+                                <col class="col-xs-6">
+                            </colgroup>
+                            <tbody ng-repeat="i in limits_quotas">
+                                <tr>
+                                    <th scope="row">{{ i[0] }}</th>
+                                    <td>{{ i[1] }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Wifi Details
+                        <span class="glyphicon glyphicon-signal" style="float: right;" aria-hidden="true"></span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <colgroup>
+                                <col class="col-xs-6">
+                                <col class="col-xs-6">
+                            </colgroup>
+                            <tbody ng-repeat="i in wifi_details">
+                                <tr>
+                                    <th scope="row">{{ i[0] }}</th>
+                                    <td>{{ i[1] }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div> 
+</div>

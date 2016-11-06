@@ -1,0 +1,36 @@
+<div id="window_defanatomy_terms_container">
+	<div class="alert alert-info alert-info-xs alert-dismissible fade in" role="alert" ng-repeat="terms in termsAr" style="padding-right: 15px;">
+		<span ng-hide="isEditable">{{ terms.display_name }}</span>
+
+		<input type="number" class="form-control" placeholder="#" ng-model="ngUpdateTNameMdl[terms.id]" ng-show="isEditable && terms.display_name.split(' ').length == 2" />
+
+		<input type="number" class="form-control" placeholder="#" ng-model="ngUpdateTNameMdl[terms.id]" ng-init="terms.display_name == 'Monthly' ? ngUpdateTNameMdl[terms.id] = 1 : ''" ng-show="isEditable && terms.display_name == 'Monthly'" />
+		<input type="number" class="form-control" placeholder="#" ng-model="ngUpdateTNameMdl[terms.id]" ng-init="terms.display_name == 'Quarterly' ? ngUpdateTNameMdl[terms.id] = 3 : ''" ng-show="isEditable && terms.display_name == 'Quarterly'" />
+		<input type="number" class="form-control" placeholder="#" ng-model="ngUpdateTNameMdl[terms.id]" ng-init="terms.display_name == 'Half-Yearly' ? ngUpdateTNameMdl[terms.id] = 6 : ''" ng-show="isEditable && terms.display_name == 'Half-Yearly'" />
+		<input type="number" class="form-control" placeholder="#" ng-model="ngUpdateTNameMdl[terms.id]" ng-init="terms.display_name == 'Yearly' ? ngUpdateTNameMdl[terms.id] = 1 : ''" ng-show="isEditable && terms.display_name == 'Yearly'" />
+
+		<select class="form-control" ng-model="ngUpdateTUnitsMdl[terms.id]" ng-init="(terms.display_name.split(' ')[1] == 'Months' || terms.display_name == 'Monthly' || terms.display_name == 'Quarterly' || terms.display_name == 'Half-Yearly') ? ngUpdateTUnitsMdl[terms.id] = 'Months' : ''" ng-show="isEditable && (terms.display_name.split(' ')[1] == 'Months' || terms.display_name == 'Monthly' || terms.display_name == 'Quarterly' || terms.display_name == 'Half-Yearly')">
+			<option value="Months">Months</option>
+			<option value="Years">Years</option>
+		</select>
+
+		<select class="form-control" ng-model="ngUpdateTUnitsMdl[terms.id]" ng-init="(terms.display_name.split(' ')[1] == 'Years' || terms.display_name == 'Yearly') ? ngUpdateTUnitsMdl[terms.id] = 'Years' : ''" ng-show="isEditable && (terms.display_name.split(' ')[1] == 'Years' || terms.display_name == 'Yearly')">
+			<option value="Months">Months</option>
+			<option value="Years">Years</option>
+		</select>
+
+		<span class="glyphicon glyphicon-pencil cursor-pointer" ng-click="isEditable = !isEditable" ng-hide="isEditable"></span>
+		<span class="glyphicon glyphicon-floppy-disk cursor-pointer" ng-click="(isEditable = !isEditable); ngUpdateTermClick(terms.id, terms.display_name);" ng-show="isEditable"></span>
+		<span class="glyphicon glyphicon-trash cursor-pointer" data-toggle="confirmation" data-dismiss="alert" data-singleton="true" data-popout="true" data-termsid="{{ terms.id }}" ng-hide="isEditable || terms.freezed != null" ng-terms-dir></span>
+	</div>
+
+	<div class="alert alert-info alert-info-xs" role="alert">
+		<input type="number" class="form-control" placeholder="#" ng-model="ngTNameMdl"></input> <span style="margin-right: 10px;">
+			<select class="form-control" ng-model="ngTUnitsMdl">
+				<option value="Months">Months</option>
+				<option value="Years">Years</option>
+			</select>
+			</span>
+		<span class="glyphicon glyphicon-plus-sign pull-right cursor-pointer" style="margin-top: 2px;" ng-click="ngAddTermClick()"></span>
+	</div>
+</div>

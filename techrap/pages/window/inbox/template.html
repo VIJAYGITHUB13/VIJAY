@@ -1,0 +1,185 @@
+<div id="window_inbox_container">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="page-header" style="margin: 0;">
+			<div class="row">
+				<div class="col-xs-6 col-sm-8">
+					<h3>{{ tab_name }} <small class="hidden-xs">{{ tab_desc }}</small></h3>
+				</div>
+				<div class="col-xs-6 col-sm-4">
+					<h3 class="pull-right" ng-class="'text-' + curInboxMenuClassName">{{ curInboxMenuName }}</h3>
+				</div>
+			</div>
+		</div>
+		<div style="margin: 15px 0;">
+			<div class="row">
+				<div class="hidden-xs col-sm-3 col-md-2">
+					<ul style="list-style-type: none; -webkit-padding-start: 20px;">
+						<li class="cursor-pointer" style="padding-bottom: 10px;" ng-repeat="reqStats in reqStatsAr" ng-click="requestDetails('inboxMenu', reqStats.id, reqStats.display_name, reqStats.class_name)" ng-class="'text-' + reqStats.class_name">
+							{{ reqStats.display_name }} <span class="badge pull-right">{{ reqStats.status_count }}</span>
+						</li>
+						<li ng-if="mycategory == 1 || mycategory == 2" style="padding-bottom: 10px;"><hr></li>
+						<li class="cursor-pointer" ng-if="mycategory == 1 || mycategory == 2" style="padding-bottom: 10px;" ng-click="requestDetails('inboxMenu', repStatsAr[0].id, repStatsAr[0].display_name, repStatsAr[0].class_name)">
+							{{ repStatsAr[0].display_name }} <span class="badge pull-right">{{ repStatsAr[0].status_count }}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="visible-xs col-xs-12">
+					<div class="btn-group" role="group" aria-label="..." style="width: 100%; font-size: 70%;">
+						<button type="button" class="btn" ng-repeat="reqStats in reqStatsAr" ng-click="requestDetails('inboxMenu', reqStats.id, reqStats.display_name, reqStats.class_name)" ng-class="'btn-' + reqStats.class_name" style="{{ 'width: ' + (100 / (reqStatsAr.length + ((mycategory == 1 || mycategory == 2) ? 1 : 0))) + '%;' }} padding-left: 0; padding-right: 0; font-size: 80% !important;">{{ reqStats.display_name }}</button>
+						<button type="button" class="btn btn-primary" ng-if="mycategory == 1 || mycategory == 2" style="{{ 'width: ' + (100 / (reqStatsAr.length + 1)) + '%;' }} padding-left: 0; padding-right: 0; font-size: 80% !important;" ng-click="requestDetails('inboxMenu', repStatsAr[0].id, repStatsAr[0].display_name, repStatsAr[0].class_name)">{{ repStatsAr[0].display_name }}</button>
+					</div>
+				</div>
+				<div class="visible-xs col-xs-12"><hr style="margin: 20px 0;"></div>
+				<div class="col-xs-12 col-sm-9 col-md-10 container-border-left" style="font-size: 85%;">
+					<div class="panel" ng-repeat="request in requestsAr" ng-class="(request.toggle ? 'panel-default' : '')" style="{{ $last ? 'margin-bottom: 20px; border-bottom: 1px solid #ddd;' : 'margin-bottom: initial;' }} {{ $first ? 'border-top: 1px solid ' + request.color_entity + ';' : '' }}">
+						<div class="panel-heading">
+							<div class="cursor-pointer" data-toggle="collapse" data-target="{{ '#' + request.rid }}" ng-click="requestDetails('inboxRequest', request.rid, '', '', request.sid); (request.toggle = !request.toggle);">
+								<div class="row">
+									<div class="{{ curInboxMenuId == '-1' ? 'col-xs-8 col-sm-6 col-md-7' : 'col-sm-8 col-md-9' }}">
+										<ul>
+											<li class="{{ (request.toggle ? 'in' : '') }}">
+												<span style="{{ (request.toggle ? 'font-weight: bold;' : 'font-weight: normal;') }}"><span class="glyphicon" ng-class="(request.toggle ? 'glyphicon-open-file' : 'glyphicon-file')"></span> {{ request.request_id }}</span>
+												<span class="hidden-xs" style="{{ (request.toggle ? 'opacity: 1;' : 'opacity: 0.50;') }}">{{ request.name }}</span>
+												<span class="hidden-xs" class="hidden-sm" style="{{ (request.toggle ? 'opacity: 0.50;' : 'opacity: 0.35;') }}">{{ ", " + request.mobile_no + ", " + request.email_id }}</span>
+											</li>
+										</ul>
+									</div>
+									<div class="col-xs-4 col-sm-6 col-sm-2" ng-if="curInboxMenuId == '-1'">
+										<span class="pull-right">{{ request.status }}</span>
+									</div>
+									<div class="hidden-xs col-sm-4 col-md-3">
+										<span class="pull-right" style="{{ (request.toggle ? 'font-weight: bold;' : 'font-weight: normal;') }}"><span class="glyphicon glyphicon-time"></span> {{ request.created_on }}</span>
+									</div>
+								</div>
+								<div class="row visible-xs">
+									<div class="col-xs-12">
+										<div style="margin: 5px 15px 0 15px; {{ (request.toggle ? 'opacity: 1;' : 'opacity: 0.50;') }}"><span class="glyphicon glyphicon-user"></span> {{ request.name }}</div>
+									</div>
+								</div>
+								<div class="row visible-xs">
+									<div class="col-xs-12">
+										<div style="margin: 5px 15px 0 15px; {{ (request.toggle ? 'opacity: 1;' : 'opacity: 0.50;') }}"><span class="glyphicon glyphicon-time"></span> {{ request.created_on }}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-body collapse" id="{{ request.rid }}">
+							<div style="padding: 15px;">
+								<form class="form-horizontal">
+									<div class="form-group" ng-repeat="req_history in requestHistoryAr[request.rid]">
+										<div class="hidden-xs col-sm-3 col-lg-2">
+											<strong class="pull-right visible-lg">
+												<span>
+													{{ (req_history.commented_by.length >= 18) ? (req_history.commented_by.substring(0, 15) + "...") : (req_history.commented_by) }}
+												</span>
+												&nbsp;
+												<span class="glyphicon glyphicon-user cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{ req_history.ucat_name }}" ng-class="{ 'text-danger': (req_history.ucat_id <= 2), 'text-primary': (req_history.ucat_id == 3), 'text-success': (req_history.ucat_id == 5) }"></span>
+											</strong>
+											<strong class="pull-right visible-md">
+												<span>
+													{{ (req_history.commented_by.length >= 22) ? (req_history.commented_by.substring(0, 19) + "...") : (req_history.commented_by) }}
+												</span>
+												&nbsp;
+												<span class="glyphicon glyphicon-user cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{ req_history.ucat_name }}" ng-class="{ 'text-danger': (req_history.ucat_id <= 2), 'text-primary': (req_history.ucat_id == 3), 'text-success': (req_history.ucat_id == 5) }"></span>
+											</strong>
+											<strong class="pull-right visible-sm">
+												<span>
+													{{ (req_history.commented_by.length >= 13) ? (req_history.commented_by.substring(0, 10) + "...") : (req_history.commented_by) }}
+												</span>
+												&nbsp;
+												<span class="glyphicon glyphicon-user cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{ req_history.ucat_name }}" ng-class="{ 'text-danger': (req_history.ucat_id <= 2), 'text-primary': (req_history.ucat_id == 3), 'text-success': (req_history.ucat_id == 5) }"></span>
+											</strong>
+										</div>
+										<div class="col-xs-12 col-sm-9">
+											{{ req_history.comment }}
+											<div style="opacity: 0.5;">
+												<small class="hidden-xs"><span class="glyphicon glyphicon-time"></span> {{ req_history.commented_on }}</small>
+												<div class="row visible-xs">
+													<div class="col-xs-6">
+														<small><span class="glyphicon glyphicon-user"></span> {{ (req_history.commented_by.length >= 18) ? (req_history.commented_by.substring(0, 15) + "...") : (req_history.commented_by) }}</small>
+													</div>
+													<div class="col-xs-6">
+														<small class="pull-right"><span class="glyphicon glyphicon-time"></span> {{ req_history.commented_on }}</small>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-8">
+											<textarea class="form-control input-sm" rows="1" style="max-width: 100%;" placeholder="Comments" ng-model="reqDetailsObj[request.sid][request.rid].ngCommentMdl"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-8">
+											<button class="btn btn-info btn-xs" ng-click="ngPostCommentClick(request.rid, request.sid)">Post</button>
+										</div>
+									</div>
+									<div class="form-group" ng-if="reqDetailsObj[request.sid][request.rid].isInfoComments.msg">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-8">
+											<div class="alert {{ reqDetailsObj[request.sid][request.rid].isInfoComments.alertname }} alert-dismissible" role="alert" style="padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px;">
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<strong>{{ reqDetailsObj[request.sid][request.rid].isInfoComments.title }}:</strong> {{ reqDetailsObj[request.sid][request.rid].isInfoComments.msg }}
+											</div>
+										</div>
+									</div>
+									<div class="form-group" ng-if="curInboxMenuId != -1 && request.sid <= 7">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-8"><hr /></div>
+									</div>
+									<div class="form-group" ng-if="(curInboxMenuId != -1 && request.sid == 4)">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-5 col-md-4 col-lg-3">
+											<input type="text" class="form-control input-sm" placeholder="MAC Address" ng-model="reqDetailsObj[request.sid][request.rid].ngMACAddressMdl" />
+										</div>
+									</div>
+									<div class="form-group" ng-if="curInboxMenuId != -1 && request.sid <= 7">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-5 col-md-4 col-lg-3" ng-if="request.sid <= 2">
+											<select class="form-control input-sm" id="udetails" name="udetails" ng-if="request.sid == 1" ng-model="reqDetailsObj[request.sid][request.rid].ngUDetailsMdl" ng-options="udetails.userid as udetails.name for udetails in userDetailsAr">
+												<option value="">Select</option>
+											</select>
+											<input type="text" class="form-control input-sm" name="time" placeholder="Schedule" ng-if="request.sid == 2" ng-model="reqDetailsObj[request.sid][request.rid].ngScheduleOnMdl" datetimepicker datetimepicker-options="{{ datetimepickerOptions }}">
+										</div>
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-8" ng-if="request.sid > 2 && request.sid <= 7">
+											<textarea class="form-control input-sm" rows="1" placeholder="Status change inputs" style="max-width: 100%;" ng-model="reqDetailsObj[request.sid][request.rid].ngStatusChangeInputsMdl"></textarea>
+										</div>
+									</div>
+									<div class="form-group" ng-if="(curInboxMenuId != -1 && request.sid <= 2)">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-8">
+											<textarea class="form-control input-sm" rows="1" placeholder="Status change inputs" style="max-width: 100%;" ng-model="reqDetailsObj[request.sid][request.rid].ngStatusChangeInputsMdl"></textarea>
+										</div>
+									</div>
+									<div class="form-group" ng-if="curInboxMenuId != -1 && request.sid <= 7">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-8" ng-switch on="request.sid">
+											<button class="btn btn-primary btn-xs" ng-switch-when="1" ng-click="ngStatusChangeClick(request.rid, request.sid)">Assign</button>
+											<button class="btn btn-primary btn-xs" ng-switch-when="2" ng-click="ngStatusChangeClick(request.rid, request.sid)">Schedule</button>
+											<button class="btn btn-primary btn-xs" ng-switch-when="3" ng-click="ngStatusChangeClick(request.rid, request.sid)">Init Setup</button>
+											<button class="btn btn-primary btn-xs" ng-switch-when="4" ng-click="ngStatusChangeClick(request.rid, request.sid)">Init Activate</button>
+											<button class="btn btn-primary btn-xs" ng-switch-when="5" ng-click="ngStatusChangeClick(request.rid, request.sid)">Activate</button>
+											<button class="btn btn-primary btn-xs" ng-switch-when="6" ng-click="ngStatusChangeClick(request.rid, request.sid)">Activate</button>
+											<button class="btn btn-primary btn-xs" ng-switch-when="7" ng-click="ngStatusChangeClick(request.rid, request.sid)">Deactivate</button>
+										</div>
+									</div>
+									<div class="form-group" ng-if="reqDetailsObj[request.sid][request.rid].isInfoStatusChange.msg">
+										<div class="col-xs-12 col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-8">
+											<div class="alert {{ reqDetailsObj[request.sid][request.rid].isInfoStatusChange.alertname }} alert-dismissible" role="alert" style="padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px;">
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<strong>{{ reqDetailsObj[request.sid][request.rid].isInfoStatusChange.title }}:</strong> {{ reqDetailsObj[request.sid][request.rid].isInfoStatusChange.msg }}
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div ng-if="reqDetailsObj['status'].isInfo.msg">
+						<div class="alert {{ reqDetailsObj['status'].isInfo.alertname }} alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>{{ reqDetailsObj['status'].isInfo.title }}:</strong> {{ reqDetailsObj['status'].isInfo.msg }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>
+</div>

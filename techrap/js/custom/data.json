@@ -1,0 +1,80 @@
+{
+	"pageLogin": {
+		"login_details" : {
+			"username": "nvkumar_cc",
+			"password": "91072313"
+		}
+	},
+	"pageHome": {
+		"geninfo" : [
+			["Username:", "nvkumar_cc"],
+			["Account Type:", "Regular"],
+			["Account Status:", "Active"],
+			["Static IP Address:", "10.100.200.24"],
+			["Allowed MAC Address:", "NA"],
+			["Deposit:", "Rs. 0/-"]
+		],
+		"serinfo" : [
+			["Active Service:", "S-WIMAX U 2 MBPS"],
+			["Service Type:", "Prepaid"],
+			["Download Datarate:", "2048 kbps"],
+			["Upload Datarate:", "4096 kbps"],
+			["Next Service Change Date:", "NA"],
+			["Scheduled Service Name:", "NA"]
+		],
+		"userdetails" : [
+			["First Name:", "Vijaykumar"],
+			["Last Name:", "Nanikeri"],
+			["Address:", "H. No: 2-4-48, Dathathreya Nagar, Chengi Cherla, Boduppal"],
+			["City:", "Hyderabad"],
+			["Country:", "India"],
+			["State:", "Telangana"],
+			["Phone:", "9963118512"],
+			["Mobile No:", "9949986848"],
+			["Email ID:", "vijaykumar.nanikeri@gmail.com"],
+			["Company:", "Cognizant Tech Sol Ind (P) Ltd"],
+			["VAT ID:", "NA"]
+		],
+		"limits_quotas" : [
+			["Available Download:", "No Limit"],
+			["Available Upload:", "No Limit"],
+			["Available Total Traffic:", "No Limit"],
+			["Available Online Time:", "No Limit"],
+			["Account Expiry Date:", "2015-09-07 00:00:00"],
+			["Today's Download Quota:", "NA"],
+			["Today's Upload Quota:", "NA"],
+			["Today's Total Quota:", "NA"],
+			["Today's Time Quota:", "NA"]
+		],
+		"wifi_details" : [
+			["Panel Content Access Point:", "NA"],
+			["Signal Level:", "NA"],
+			["SNR:", "NA"],
+			["CCQ:", "NA"]
+		]
+	},
+	"pageTraffic": {
+		"traffic_report" : [
+			["2013", "28d 19:58:11", "24.3 GB", "2.4 GB", "26.7 GB"],
+			["2014", "199d 03:54:48", "178.1 GB", "15.1 GB", "193.2 GB"],
+			["2015", "166d 01:54:18", "193.3 GB", "17.6 GB", "210.8 GB"]
+		]
+	},
+	"pageInvoice": {
+		"invoice_details" : [
+			{
+				"headings": ["Date: ", "Invoice Number: ", "Invoice Type: ", "Description: ", "Price (Rs): ", "Balance (Rs): ", "Added DL/UL/Total: ", "Available DL/UL/Total: ", "Added Time: ", "Available Online Time: ", "Added Days: ", "Expiration:"]
+			},
+			{
+				"details": [
+					["2013-11-08", "2013-0236", "C", "S-WIMAX D 500", "2000.00", "0.00", "0 B 0 B 120.0 GB", "0 B 0 B 120.0 GB", "00:00:00", "00:00:00", "120", "2014-03-08"], 
+					["2014-03-08", "2014-0167", "C", "S-WIMAX D 500", "3000.00", "0.00", "0 B 0 B 180.0 GB", "0 B 0 B 180.0 GB", "00:00:00", "00:00:00", "186", "2014-09-10"], 
+					["2014-09-10", "2014-0688", "C", "S-WIMAX-U 1 MBPS", "1500.00", "0.00", "0 B 0 B 0 B", "0 B 0 B 0 B", "00:00:00", "00:00:00", "93", "2014-12-11"], 
+					["2014-12-11", "2014-0962", "C", "S-WIMAX-U 1 MBPS", "1500.00", "0.00", "0 B 0 B 0 B", "0 B 0 B 0 B", "00:00:00", "00:00:00", "90", "2015-03-11"], 
+					["2015-03-10", "2015-0187", "C", "S-WIMAX-U 1 MBPS", "1500.00", "0.00", "0 B 0 B 0 B", "0 B 0 B 0 B", "00:00:00", "00:00:00", "90", "2015-06-09"], 
+					["2015-06-09", "2015-0492", "C", "S-WIMAX U 2 MBPS", "1800.00", "0.00", "0 B 0 B 0 B", "0 B 0 B 0 B", "00:00:00", "00:00:00", "90", "2015-09-0"]
+				]
+			}
+		]	
+	}
+}

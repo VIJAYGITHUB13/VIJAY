@@ -1,0 +1,260 @@
+/* Framework Level CSS */
+/* =================== */
+@font-face {
+	font-family: "Segoi UI";
+	src: url("../../fonts/segoeui.ttf");
+}
+
+@font-face {
+	font-family: "Segoi UI Light";
+	src: url("../../fonts/segoeuil.ttf");
+}
+
+@font-face {
+	font-family: "Segoi UI Semibold";
+	src: url("../../fonts/segoeuisb.ttf");
+}
+
+@font-face {
+	font-family: "Segoi UI Semilight";
+	src: url("../../fonts/segoeuisl.ttf");
+}
+
+@font-face {
+	font-family: "Segoi UI Bold";
+	src: url("../../fonts/segoeuib.ttf");
+}
+
+@font-face {
+	font-family: "Segoi UI Semibold";
+	src: url("../../fonts/seguisb.ttf");
+}
+
+hr {
+	margin: 0 auto;
+}
+
+body {
+	font-family: "Segoi UI", "Century Gothic", "Tahoma", "Halvetica", "Arial";
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.max-width {
+	max-width: 100%;
+}
+
+.container-border-left {
+	border-left: 1px solid #ddd;	
+}
+
+hr.gradience { 
+	border: 0; 
+	height: 1px; 
+	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
+
+/* Page Level CSS */
+/* =================== */
+/* Index CSS */
+/* Starts >> */
+#index_container .app_header_container {
+	border: 1px solid #ddd;
+	border-radius: 0 0 3px 3px;
+	background-color: #f5f5f5;
+	color: #333;
+}
+
+#index_container .app_body_container {
+	margin: 15px auto 50px auto;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	color: #333;
+}
+
+#index_container .navbar {
+	border-radius: 0;
+	margin-bottom: 7px;
+}
+/* << Ends */
+
+/* Index > Home CSS */
+/* Starts >> */
+#index_home_container .tag_line {
+	display: inline-block;
+	margin: 15px auto;
+	font-size: 175%;
+	color: rgb(0, 173, 239);
+}
+/* << Ends */
+
+/* Index > Tariff Plans CSS */
+/* Starts >> */
+#index_tariffplans_container #table_tariffplans tr th:first-child,
+#index_tariffplans_container #table_tariffplans tr td:first-child,
+#index_tariffplans_container #table_tariff tr th:first-child,
+#index_tariffplans_container #table_tariff tr td:first-child  {
+	text-align: right;
+}
+/* << Ends */
+
+/* Window CSS */
+/* Starts >> */
+#window_container .app_header_container {
+	border: 1px solid #ddd;
+	border-radius: 0 0 3px 3px;
+	background-color: #f5f5f5;
+	color: #333;
+}
+
+#window_container .app_body_container {
+	margin: 15px auto 50px auto;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	color: #333;
+}
+
+#window_container .navbar {
+	border-radius: 0;
+	margin-bottom: 7px;
+}
+/* << Ends */
+
+/* Window > Users CSS */
+/* Starts >> */
+#window_users_view_container #table_users tr th:first-child,
+#window_users_view_container #table_users tr td:first-child {
+	text-align: right;
+}
+/* << Ends */
+
+/* Window > DefAnatomy CSS */
+/* Starts >> */
+#window_defanatomy_plans_container .glyphicon,
+#window_defanatomy_speed_container .glyphicon,
+#window_defanatomy_fups_container .glyphicon,
+#window_defanatomy_postfups_container .glyphicon,
+#window_defanatomy_terms_container .glyphicon {
+	opacity: 0.75;
+}
+
+#window_defanatomy_plans_container .glyphicon:hover,
+#window_defanatomy_speed_container .glyphicon:hover,
+#window_defanatomy_fups_container .glyphicon:hover,
+#window_defanatomy_postfups_container .glyphicon:hover,
+#window_defanatomy_terms_container .glyphicon:hover {
+	opacity: 1;
+}
+
+#window_defanatomy_plans_container .alert-info-xs,
+#window_defanatomy_speed_container .alert-info-xs,
+#window_defanatomy_fups_container .alert-info-xs,
+#window_defanatomy_postfups_container .alert-info-xs,
+#window_defanatomy_terms_container .alert-info-xs {
+	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: 5px;
+}
+
+#window_defanatomy_plans_container .alert-info-xs input,
+#window_defanatomy_plans_container .alert-info-xs select,
+#window_defanatomy_speed_container .alert-info-xs input,
+#window_defanatomy_speed_container .alert-info-xs select,
+#window_defanatomy_fups_container .alert-info-xs input,
+#window_defanatomy_fups_container .alert-info-xs select,
+#window_defanatomy_postfups_container .alert-info-xs input,
+#window_defanatomy_postfups_container .alert-info-xs select,
+#window_defanatomy_terms_container .alert-info-xs input,
+#window_defanatomy_terms_container .alert-info-xs select,
+#window_defanatomy_tariff_container input {
+	display: inline-block;
+	width: 60px;
+	height: 20px;
+	padding: initial;
+	font-size: 80%;
+}
+
+#window_defanatomy_anatomy_container select {
+	width: 60%;
+	height: 20px;
+	padding: initial;
+	font-size: 80%;
+}
+
+#window_defanatomy_container .panel-default {
+	border-radius: initial;
+	-webkit-box-shadow: initial;
+	box-shadow: initial;
+	border-bottom: #fff;
+}
+
+#window_defanatomy_container .panel-default:last-child {
+	border-bottom: 1px solid #ddd;
+}
+
+#window_defanatomy_container .panel-info {
+	border-radius: initial;
+}
+
+#window_defanatomy_container .panel-default .panel-body {
+	padding: initial;
+}
+
+#window_defanatomy_container .panel-default .panel-body div[id^=window_defanatomy] {
+	padding: 15px;
+}
+
+#window_defanatomy_container .panel-default>.panel-heading {
+	background-color: #fff;
+	border-color: #fff;
+}
+/* << Ends */
+
+/* Window > Inbox CSS */
+/* Starts >> */
+.panel {
+	border-color: #ddd;
+}
+#window_inbox_container .panel {
+	border-radius: initial;
+	-webkit-box-shadow: initial;
+	box-shadow: initial;
+	border-bottom: #fff;
+}
+
+#window_inbox_container .panel-default .panel-body {
+	padding: initial;
+}
+
+#window_inbox_container .panel .panel-heading ul {
+	margin-bottom: 0;
+	margin-left: 15px;
+	padding: 0;
+	list-style: none;
+}
+
+#window_inbox_container .panel .panel-heading ul li:before {
+	content: "\e250";
+	font-family: 'Glyphicons Halflings';
+	float: left;
+	margin-left: -15px;
+}
+
+#window_inbox_container .panel .panel-heading ul li.in:before {
+	content: "\e252";
+}
+/* << Ends */
+
+
+/* Window > Users > Register > Confirm Register CSS */
+/* Starts >> */
+#window_users_regformconf_container .form-control-static {
+	word-wrap: break-word;
+}
+/* << Ends */

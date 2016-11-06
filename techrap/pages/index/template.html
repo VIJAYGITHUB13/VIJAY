@@ -1,0 +1,56 @@
+<div id="index_container">
+<div class="container app_header_container">
+	<div class="row text-center">
+		<div class="col-xs-offset-4 col-xs-4" style="text-align: center;"><h4>{{ app_name }}</h4></div>
+		<div class="col-xs-4"><h5 class="pull-right" style="color: #777;"><small>{{ app_version }}</small></h5></div>
+	</div>
+	<div class="row">
+		<nav class="navbar navbar-default navbar-inverse">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-index" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">TR</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-index">
+					<ul class="nav navbar-nav">
+						<li ng-repeat="menu in indexMenusAr" ng-class="{ 'dropdown': menu.subMenusAr }">
+							<a ui-sref="{{ menu.path }}" ng-hide="menu.subMenusAr">{{ menu.display_name }}</a>
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-show="menu.subMenusAr">{{ menu.display_name }} <span class="caret"></span></a>
+							<ul class="dropdown-menu" ng-show="menu.subMenusAr">
+								<li ng-repeat="submenu in menu.subMenusAr"><a ui-sref="{{ submenu.path }}">{{ submenu.display_name }}</a></li>
+							</ul>
+						</li>
+					</ul>
+					<span class="navbar-text navbar-right hidden-xs">
+						{{ datentime | date: "MMMM dd, yyyy, " }}
+						<ds-widget-clock show-digital digital-format="'hh:mm:ss a'"></ds-widget-clock>
+					</span>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="pages/uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
+		</div>
+		<div class="col-xs-6 visible-xs">
+			<span class="pull-right" style="margin-bottom: 7px; font-size: 80%;">
+				{{ datentime | date: "dd-MM-yyyy, " }}
+				<ds-widget-clock show-digital digital-format="'hh:mm:ss a'"></ds-widget-clock>
+			</span>
+		</div>
+	</div>
+</div>
+
+<div class="container app_body_container">
+	<div ui-view="index"></div>
+</div>
+</div>

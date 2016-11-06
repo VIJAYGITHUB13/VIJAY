@@ -1,0 +1,21 @@
+<div id="window_defanatomy_container">
+<div class="row">
+	<div class="col-xs-12">
+		<dir-page-header tabname="tab_name" tabdesc="tab_desc"></dir-page-header>
+		<div style="margin: 15px 0;">
+			<div class="col-lg-offset-1 col-lg-10 col-xs-12" style="margin-bottom: 20px;">
+				<div class="panel" ng-repeat="anatomy in anatomyAr" style="{{ $last ? 'margin-bottom: 20px;' : 'margin-bottom: initial;' }}" ng-class="{ 'panel-default': anatomy.toggle, 'panel-info': !anatomy.toggle, 'hidden-xs': !(anatomy.code == 'anatomy' || anatomy.code == 'tariff') }">
+					<div class="panel-heading">
+						<h3 class="panel-title cursor-pointer" data-toggle="collapse" data-target="{{ '#' + anatomy.code }}" ng-click="anatomy.toggle = !anatomy.toggle">
+							<span class="glyphicon glyphicon-triangle-right" ng-show="anatomy.toggle"></span><span class="glyphicon glyphicon-triangle-bottom" ng-hide="anatomy.toggle"></span> {{ anatomy.label }}
+						</h3>
+					</div>
+					<div class="panel-body collapse" id="{{ anatomy.code }}">
+						<div ui-view="{{ anatomy.view }}"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

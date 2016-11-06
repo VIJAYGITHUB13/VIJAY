@@ -1,0 +1,41 @@
+<div id="window_users_regparams_container">
+<div class="row">
+	<div class="col-xs-12"><h5><strong>Registration Params</strong></h5></div>
+	<div class="col-xs-12">
+		<form class="form-horizontal" name="formRegParams" ng-submit="ngRegParamsSbmt()" novalidate>
+			<div class="form-group">
+				<label class="col-xs-6 col-sm-5 col-md-6 control-label" for="ucategory">User Category</label>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<select class="form-control input-sm hidden-xs" id="ucategory" name="ucategory" ng-model="formRegParamsObj.ngUCategoryMdl" ng-options="ucategory.id as ucategory.name for ucategory in uCategoryArSM" ng-required="true">
+						<option value="">Select</option>
+					</select>
+					<select class="form-control input-sm visible-xs" id="ucategory" name="ucategory" ng-model="formRegParamsObj.ngUCategoryMdl" ng-options="ucategory.id as ucategory.name for ucategory in uCategoryArXS" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-6 col-sm-5 col-md-6 control-label" for="regtype">Registration Type</label>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<select class="form-control input-sm hidden-xs" id="regtype" name="regtype" ng-model="formRegParamsObj.ngRegTypeMdl" ng-options="regtype.code as regtype.name for regtype in regTypeArSM" ng-required="true">
+						<option value="">Select</option>
+					</select>
+					<select class="form-control input-sm visible-xs" id="regtype" name="regtype" ng-model="formRegParamsObj.ngRegTypeMdl" ng-options="regtype.code as regtype.name for regtype in regTypeArXS" ng-required="true">
+						<option value="">Select</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-12 text-center visible-xs">
+					<button type="submit" class="btn btn-primary btn-sm" ng-disabled="formRegParams.$invalid">Continue</button>
+					<button type="button" class="btn btn-primary btn-sm" ng-disabled="formRegParams.$invalid" ng-click="ngResetClick()">Reset</button>
+				</div>
+				<div class="col-xs-offset-5 col-sm-7 col-md-offset-6 col-md-6 hidden-xs">
+					<button type="submit" class="btn btn-primary btn-sm" ng-disabled="formRegParams.$invalid">Continue</button>
+					<button type="button" class="btn btn-primary btn-sm" ng-disabled="formRegParams.$invalid" ng-click="ngResetClick()">Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="container bt_container">
+        <div class="page-header">
+            <h2>List Invoices <small>Invoice Information</small></h2>
+        </div>
+        <!-- <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="info">
+                        <th>Date</th>
+                        <th>Action</th>
+                        <th>Invoice Number</th>
+                        <th>Invoice Type</th>
+                        <th>Description</th>
+                        <th>Price (Rs)</th>
+                        <th>Balance (Rs)</th>
+                        <th>Added DL/UL/Total</th>
+                        <th>Available DL/UL/Total</th>
+                        <th>Added Time</th>
+                        <th>Available Online Time</th>
+                        <th>Added Days</th>
+                        <th>Expiration</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="i in invoice_details">
+                    <tr>
+                        <td>{{ i[0] }}</td>
+                        <td>e</td>
+                        <td>{{ i[1] }}</td>
+                        <td>{{ i[2] }}</td>
+                        <td>{{ i[3] }}</td>
+                        <td>{{ i[4] }}</td>
+                        <td>{{ i[5] }}</td>
+                        <td>{{ i[6] }}</td>
+                        <td>{{ i[7] }}</td>
+                        <td>{{ i[8] }}</td>
+                        <td>{{ i[9] }}</td>
+                        <td>{{ i[10] }}</td>
+                        <td>{{ i[11] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+        <div class="invoice_timeline">
+        <ul id='timeline'>
+            <li class='work' ng-repeat="i in invoice_details[1].details">
+                <input class='radio' id='work{{ $index+1 }}' name='works' type='radio'>
+                <div class="relative">
+                    <label for='work{{ $index+1 }}'><span class="label label-default">{{ invoice_details[0].headings[1] }} {{ i[1] }}</span></label>
+                    <span class='date'><span class="label label-default">{{ i[0] }}</span></span>
+                    <span class='circle'></span>
+                </div>
+                <div class='content'>
+                    <p>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[2] }}</strong>{{ i[2] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[3] }}</strong>{{ i[3] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[4] }}</strong>{{ i[4] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[5] }}</strong>{{ i[5] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[6] }}</strong>{{ i[6] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[7] }}</strong>{{ i[7] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[8] }}</strong>{{ i[8] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[9] }}</strong>{{ i[9] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[10] }}</strong>{{ i[10] }}</span>
+                        <span class="label label-info"><strong>{{ invoice_details[0].headings[11] }}</strong>{{ i[11] }}</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        </div>
+
+
+    </div>
+</div>

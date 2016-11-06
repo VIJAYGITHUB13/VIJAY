@@ -1,0 +1,14 @@
+<div id="window_defanatomy_plans_container">
+	<div class="alert alert-info alert-info-xs alert-dismissible fade in" role="alert" ng-repeat="plan in plansAr" style="padding-right: 15px;">
+		<span ng-hide="isEditable">{{ plan.display_name }}</span>
+		<input type="text" class="form-control" id="pname_{{ plan.id }}" value="{{ plan.display_name }}" placeholder="Plan" ng-show="isEditable" />
+		<span class="glyphicon glyphicon-pencil cursor-pointer" ng-click="isEditable = !isEditable" ng-hide="isEditable"></span>
+		<span class="glyphicon glyphicon-floppy-disk cursor-pointer" ng-click="(isEditable = !isEditable); ngUpdatePlanClick(plan.id, plan.display_name);" ng-show="isEditable"></span>
+		<span class="glyphicon glyphicon-trash cursor-pointer" data-toggle="confirmation" data-dismiss="alert" data-singleton="true" data-popout="true" data-planid="{{ plan.id }}" ng-hide="isEditable || plan.freezed != null" ng-plan-dir></span>
+	</div>
+
+	<div class="alert alert-info alert-info-xs" role="alert">
+		<input type="text" class="form-control" placeholder="Plan" ng-model="ngPDnameMdl"></input>
+		<span class="glyphicon glyphicon-plus-sign pull-right cursor-pointer" style="margin-top: 2px;" ng-click="ngAddPlanClick()"></span>
+	</div>
+</div>

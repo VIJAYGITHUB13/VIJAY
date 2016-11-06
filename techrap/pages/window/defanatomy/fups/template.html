@@ -1,0 +1,27 @@
+<div id="window_defanatomy_fups_container">
+	<div class="alert alert-info alert-info-xs alert-dismissible fade in" role="alert" ng-repeat="fups in fupsAr" style="padding-right: 15px;">
+		<span ng-hide="isEditable">{{ fups.display_name }}</span>
+		<input type="number" class="form-control" id="fname_{{ fups.id }}" value="{{ fups.display_name.split(' ')[0] }}" placeholder="#" ng-show="isEditable" />
+		<select class="form-control" id="funits_{{ fups.id }}" ng-show="isEditable && fups.display_name.split(' ')[1] == 'GB'">
+			<option value="GB" selected="selected">GB</option>
+			<option value="TB">TB</option>
+		</select>
+		<select class="form-control" id="funits_{{ fups.id }}" ng-show="isEditable && fups.display_name.split(' ')[1] == 'TB'">
+			<option value="GB">GB</option>
+			<option value="TB" selected="selected">TB</option>
+		</select>
+		<span class="glyphicon glyphicon-pencil cursor-pointer" ng-click="isEditable = !isEditable" ng-hide="isEditable"></span>
+		<span class="glyphicon glyphicon-floppy-disk cursor-pointer" ng-click="(isEditable = !isEditable); ngUpdateFUPClick(fups.id, fups.display_name);" ng-show="isEditable"></span>
+		<span class="glyphicon glyphicon-trash cursor-pointer" data-toggle="confirmation" data-dismiss="alert" data-singleton="true" data-popout="true" data-fupsid="{{ fups.id }}" ng-hide="isEditable || fups.freezed != null" ng-fups-dir></span>
+	</div>
+
+	<div class="alert alert-info alert-info-xs" role="alert">
+		<input type="number" class="form-control" placeholder="#" ng-model="ngFNameMdl"></input> <span style="margin-right: 10px;">
+			<select class="form-control" ng-model="ngFUnitsMdl">
+				<option value="GB">GB</option>
+				<option value="TB">TB</option>
+			</select>
+			</span>
+		<span class="glyphicon glyphicon-plus-sign pull-right cursor-pointer" style="margin-top: 2px;" ng-click="ngAddFUPClick()"></span>
+	</div>
+</div>

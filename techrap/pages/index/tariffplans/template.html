@@ -1,0 +1,57 @@
+<div id="index_tariffplans_container">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="page-header" style="margin: 0;">
+			<h3>{{ tab_name }} <small class="hidden-xs">Effective from 05<sup>th</sup> August, 2015</small></h3>
+		</div>
+		<div style="margin: 15px 0;">
+			<table class="table table-bordered table-striped hidden-xs" id="table_tariffplans">
+				<thead>
+					<tr>
+						<th class="visible-md visible-lg" ng-repeat="thead in theadArMD track by $index">{{ thead }}</th>
+						<th class="visible-sm" ng-repeat="thead in theadArSM track by $index">{{ thead }}</th>
+						<th ng-repeat="thead in theadAr">{{ thead }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tbody in tbodyAr track by $index">
+						<th>{{ $index + 1 }}</th>
+						<td>{{ tbody.plan }}</td>
+						<td>{{ tbody.speed }}</td>
+						<td>{{ tbody.fup }}</td>
+						<td>{{ tbody.post_fup }}</td>
+						<td ng-repeat="item in tbody.fares.split(', ') track by $index">{{ item == '0' ? 'NA' : 'Rs. ' + item + '/-' }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<ul class="list-group visible-xs">
+				<li class="list-group-item" ng-repeat="tbody in tbodyAr track by $index">
+					<div class="row">
+						<div class="col-xs-12 text-center"><h4>{{ tbody.plan }}</h4></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-offset-1 col-xs-10" style="margin-bottom: 10px;"><hr /></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">Speed</strong></div>
+						<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ tbody.speed }}</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">FUP Limit</strong></div>
+						<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ tbody.fup }}</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">Post FUP</strong></div>
+						<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ tbody.post_fup }}</div>
+					</div>
+					<div class="row" ng-repeat="item in tbody.fares.split(', ') track by $index">
+						<div class="col-xs-6" style="padding-bottom: 10px;"><strong class="pull-right">{{ theadAr[$index] }}</strong></div>
+						<div class="col-xs-6 container-border-left" style="padding-bottom: 10px;">{{ (item == '0' ? 'NA' : 'Rs. ' + item + '/-') }}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div> 
+</div>
+</div>

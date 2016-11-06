@@ -1,0 +1,27 @@
+<div id="window_defanatomy_postfups_container">
+	<div class="alert alert-info alert-info-xs alert-dismissible fade in" role="alert" ng-repeat="postfups in postfupsAr" style="padding-right: 15px;">
+		<span ng-hide="isEditable">{{ postfups.display_name }}</span>
+		<input type="number" class="form-control" id="pfname_{{ postfups.id }}" value="{{ postfups.display_name.split(' ')[0] }}" placeholder="#" ng-show="isEditable" />
+		<select class="form-control" id="pfunits_{{ postfups.id }}" ng-show="isEditable && postfups.display_name.split(' ')[1] == 'Kbps'">
+			<option value="Kbps" selected="selected">Kbps</option>
+			<option value="Mbps">Mbps</option>
+		</select>
+		<select class="form-control" id="pfunits_{{ postfups.id }}" ng-show="isEditable && postfups.display_name.split(' ')[1] == 'Mbps'">
+			<option value="Kbps">Kbps</option>
+			<option value="Mbps" selected="selected">Mbps</option>
+		</select>
+		<span class="glyphicon glyphicon-pencil cursor-pointer" ng-click="isEditable = !isEditable" ng-hide="isEditable"></span>
+		<span class="glyphicon glyphicon-floppy-disk cursor-pointer" ng-click="(isEditable = !isEditable); ngUpdatePFUPClick(postfups.id, postfups.display_name);" ng-show="isEditable"></span>
+		<span class="glyphicon glyphicon-trash cursor-pointer" data-toggle="confirmation" data-dismiss="alert" data-singleton="true" data-popout="true" data-postfupsid="{{ postfups.id }}" ng-hide="isEditable || postfups.freezed != null" ng-pfups-dir></span>
+	</div>
+
+	<div class="alert alert-info alert-info-xs" role="alert">
+		<input type="number" class="form-control" placeholder="#" ng-model="ngPFNameMdl"></input> <span style="margin-right: 10px;">
+			<select class="form-control" ng-model="ngPFUnitsMdl">
+				<option value="Kbps">Kbps</option>
+				<option value="Mbps">Mbps</option>
+			</select>
+			</span>
+		<span class="glyphicon glyphicon-plus-sign pull-right cursor-pointer" style="margin-top: 2px;" ng-click="ngAddPFUPClick()"></span>
+	</div>
+</div>

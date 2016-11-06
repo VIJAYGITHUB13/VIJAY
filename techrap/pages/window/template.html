@@ -1,0 +1,72 @@
+<div id="window_container">
+<div class="container app_header_container">
+	<!-- <div class="row text-center">
+		<div class="col-xs-offset-4 col-xs-4" style="text-align: center;"><h4>{{ app_name }}</h4></div>
+		<div class="col-xs-4"><h5 class="pull-right" style="color: #777;"><small>{{ app_version }}</small></h5></div>
+	</div> -->
+	<div class="row">
+		<nav class="navbar navbar-default navbar-inverse" style="border-radius: 0; margin-bottom: 7px;">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-window" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">TR</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-window">
+					<ul class="nav navbar-nav">
+						<li ng-repeat="menu in windowMenusAr track by $index" ng-class="{ 'dropdown': menu.subMenusAr }">
+							<a ui-sref="{{ menu.path }}" ng-hide="menu.subMenusAr" ng-class="menu.rwd">{{ menu.display_name }}</a>
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-show="menu.subMenusAr" ng-class="menu.rwd">{{ menu.display_name }} <span class="caret"></span></a>
+							<ul class="dropdown-menu" ng-show="menu.subMenusAr" ng-class="menu.rwd">
+								<li ng-repeat="submenu in menu.subMenusAr" ng-class="submenu.rwd">
+									<a ui-sref="{{ submenu.path }}">{{ submenu.display_name }}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ uname ? 'Hi, ' + uname : 'Hi, Guest' }} <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<!-- <li><a ui-sref="pageWindow.pageDashboard">My Profile</a></li> -->
+								<li><a class="cursor-pointer" ng-click="ngMyProfileClick()">My Profile</a></li>
+								<li><a ui-sref="pageWindow.pageChangePassword">Change Password</a></li>
+								<li class="divider" role="separator"></li>
+								<li><a ui-sref="pageIndex.pageHome">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="pages/uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
+		</div>
+		<div class="col-xs-6">
+			<span class="pull-right" style="margin-bottom: 7px; font-size: 80%;">
+				<span class="hidden-xs">
+					{{ datentime | date: "MMMM dd, yyyy, " }}
+					<ds-widget-clock show-digital digital-format="'hh:mm:ss a'"></ds-widget-clock>
+				</span>
+				<span class="visible-xs">
+					{{ datentime | date: "dd-MM-yyyy, " }}
+					<ds-widget-clock show-digital digital-format="'hh:mm:ss a'"></ds-widget-clock>
+				</span>
+			</span>
+		</div>
+	</div>
+</div>
+
+<div class="container app_body_container">
+	<div ui-view="window"></div>
+</div>
+</div>
